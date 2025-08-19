@@ -2,26 +2,104 @@
 @tailwind components;
 @tailwind utilities;
 
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
-}
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
-}
-
 body {
-  color: var(--foreground);
-  background: var(--background);
-  font-family: Arial, Helvetica, sans-serif;
+  @apply bg-light dark:bg-dark text-dark dark:text-light transition-colors duration-300;
 }
 
-@layer utilities {
-  .text-balance {
-    text-wrap: balance;
+/* Responsive typography */
+@layer base {
+  html {
+    @apply text-[16px] sm:text-[15px] md:text-[16px] lg:text-[17px] xl:text-[18px];
   }
+
+  h1 {
+    @apply text-3xl sm:text-4xl md:text-5xl font-bold;
+  }
+
+  h2 {
+    @apply text-2xl sm:text-3xl md:text-4xl font-semibold;
+  }
+
+  h3 {
+    @apply text-xl sm:text-2xl md:text-3xl font-medium;
+  }
+}
+
+/* Responsive container */
+.container {
+  @apply w-full px-4 sm:px-6 md:px-8 lg:px-10 xl:px-12;
+}
+
+/* Custom scrollbar - responsive */
+::-webkit-scrollbar {
+  @apply w-2 sm:w-3;
+}
+
+::-webkit-scrollbar-track {
+  @apply bg-gray-200 dark:bg-gray-800;
+}
+
+::-webkit-scrollbar-thumb {
+  @apply bg-primary rounded-full;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  @apply bg-secondary;
+}
+
+/* Responsive utilities */
+@layer utilities {
+  .responsive-padding {
+    @apply px-4 sm:px-6 md:px-8 lg:px-10 xl:px-12;
+  }
+
+  .responsive-margin {
+    @apply mx-4 sm:mx-6 md:mx-8 lg:mx-10 xl:mx-12;
+  }
+
+  .responsive-gap {
+    @apply gap-4 sm:gap-6 md:gap-8;
+  }
+
+  .responsive-grid {
+    @apply grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4;
+  }
+
+  .responsive-flex-col {
+    @apply flex flex-col sm:flex-row;
+  }
+
+  .responsive-text {
+    @apply text-sm sm:text-base md:text-lg;
+  }
+}
+
+/* Dark mode transitions */
+* {
+  @apply transition-colors duration-200 ease-in-out;
+}
+
+/* Responsive animations */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+.animate-fade-in {
+  animation: fadeIn 0.5s ease-out;
+}
+
+@media (max-width: 640px) {
+  .animate-fade-in {
+    animation: fadeIn 0.3s ease-out;
+  }
+}
+
+/* Responsive aspect ratios */
+.aspect-responsive {
+  @apply aspect-video sm:aspect-square md:aspect-video;
 }
