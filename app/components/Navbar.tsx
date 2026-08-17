@@ -1,6 +1,7 @@
 "use client";
 
 import Link from "next/link";
+import Image from "next/image";
 import { useState, useEffect } from "react";
 import { FaMoon, FaSun, FaTimes, FaBars } from "react-icons/fa";
 import { usePathname } from "next/navigation";
@@ -55,12 +56,19 @@ export default function Navbar() {
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between items-center h-16">
-          {/* Logo - bentuk "A" */}
-          <Link
-            href="/"
-            className="text-2xl font-bold text-electric-blue bg-black dark:bg-white text-black dark:text-white px-3 py-1 rounded-md"
-          >
-            A
+          {/* Logo - menggunakan arw_logo.png */}
+          <Link href="/" className="flex items-center">
+            <div className="w-10 h-10 relative rounded-lg overflow-hidden border-2 border-electric-blue">
+              <Image
+                src="/images/arw_logo.png"
+                alt="AKW Logo"
+                fill
+                className="object-contain"
+              />
+            </div>
+            <span className="ml-2 text-xl font-bold text-electric-blue">
+              Akmal Raditya
+            </span>
           </Link>
 
           {/* Desktop Navigation */}

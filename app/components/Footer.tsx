@@ -1,5 +1,6 @@
 import Link from "next/link";
-import { FaGithub, FaLinkedin, FaTwitter, FaCode } from "react-icons/fa";
+import Image from "next/image";
+import { FaGithub, FaLinkedin, FaTwitter, FaEnvelope } from "react-icons/fa";
 
 export default function Footer() {
   const socialLinks = [
@@ -14,17 +15,25 @@ export default function Footer() {
 
   return (
     <footer className="bg-white dark:bg-black py-8 border-t border-gray-200 dark:border-gray-800">
-      <div className="container mx-auto px-4">
-        <div className="flex flex-col md:flex-row justify-between items-center">
-          <div className="mb-6 md:mb-0">
-            <Link
-              href="/"
-              className="flex items-center text-xl font-bold text-electric-blue"
-            >
-              <FaCode className="mr-2" />
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="flex flex-col md:flex-row justify-between items-center md:items-start">
+          <div className="mb-6 md:mb-0 text-center md:text-left">
+            <Link href="/" className="flex items-center justify-center md:justify-start text-xl font-bold text-electric-blue">
+              <div className="w-8 h-8 relative rounded-lg overflow-hidden border-2 border-electric-blue mr-2">
+                <Image
+                  src="/images/arw_logo.png"
+                  alt="AKW Logo"
+                  fill
+                  className="object-contain"
+                />
+              </div>
               Akmal Raditya
             </Link>
-            <p className="mt-2 text-gray-600 dark:text-gray-400">
+            <p className="mt-2 text-gray-600 dark:text-gray-400 flex items-center justify-center md:justify-start gap-2">
+              <FaEnvelope className="text-electric-blue" size={14} />
+              akmal.raditya.wijaya@gmail.com
+            </p>
+            <p className="mt-1 text-sm text-gray-500 dark:text-gray-500">
               Full Stack Developer | Web | Mobile | Game
             </p>
           </div>

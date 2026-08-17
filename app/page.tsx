@@ -43,134 +43,42 @@ export default function Home() {
   const ctaRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
+    // Simplified animations for better performance
     gsap.fromTo(
       ".hero-badge",
       { y: 20, opacity: 0 },
-      { y: 0, opacity: 1, duration: 0.8, delay: 0.2 }
+      { y: 0, opacity: 1, duration: 0.5, delay: 0.1 }
     );
 
     gsap.fromTo(
       ".hero-title",
-      { y: 30, opacity: 0 },
-      { y: 0, opacity: 1, duration: 1, delay: 0.4, stagger: 0.1 }
+      { y: 20, opacity: 0 },
+      { y: 0, opacity: 1, duration: 0.6, delay: 0.2 }
     );
 
     gsap.fromTo(
       ".hero-description",
-      { y: 20, opacity: 0 },
-      { y: 0, opacity: 1, duration: 0.8, delay: 0.8 }
+      { opacity: 0 },
+      { opacity: 1, duration: 0.5, delay: 0.4 }
     );
 
     gsap.fromTo(
       ".hero-buttons",
-      { y: 20, opacity: 0 },
-      { y: 0, opacity: 1, duration: 0.8, delay: 1.2 }
+      { opacity: 0, y: 10 },
+      { opacity: 1, y: 0, duration: 0.4, delay: 0.5 }
     );
 
     gsap.fromTo(
       ".hero-social",
-      { y: 20, opacity: 0 },
-      { y: 0, opacity: 1, duration: 0.8, delay: 1.6 }
+      { opacity: 0, y: 10 },
+      { opacity: 1, y: 0, duration: 0.4, delay: 0.6 }
     );
 
     gsap.fromTo(
-      ".hero-image",
-      { scale: 0.9, opacity: 0 },
-      { scale: 1, opacity: 1, duration: 1.2, delay: 0.8, ease: "back.out(1.7)" }
+      ".hero-image-container",
+      { scale: 0.95, opacity: 0 },
+      { scale: 1, opacity: 1, duration: 0.7, delay: 0.3, ease: "power2.out" }
     );
-
-    gsap.fromTo(
-      ".experience-badge",
-      { scale: 0, opacity: 0 },
-      {
-        scale: 1,
-        opacity: 1,
-        duration: 0.8,
-        delay: 1.8,
-        ease: "elastic.out(1, 0.8)",
-      }
-    );
-
-    gsap.fromTo(
-      ".skill-card",
-      { y: 100, opacity: 0 },
-      {
-        y: 0,
-        opacity: 1,
-        duration: 0.8,
-        stagger: 0.2,
-        scrollTrigger: {
-          trigger: skillsRef.current,
-          start: "top 80%",
-          toggleActions: "play none none reverse",
-        },
-      }
-    );
-
-    gsap.fromTo(
-      ".project-card",
-      { y: 100, opacity: 0, rotationY: 15 },
-      {
-        y: 0,
-        opacity: 1,
-        rotationY: 0,
-        duration: 0.8,
-        stagger: 0.2,
-        scrollTrigger: {
-          trigger: projectsRef.current,
-          start: "top 75%",
-          toggleActions: "play none none reverse",
-        },
-      }
-    );
-
-    gsap.fromTo(
-      ".cta-content",
-      { y: 50, opacity: 0 },
-      {
-        y: 0,
-        opacity: 1,
-        duration: 1,
-        scrollTrigger: {
-          trigger: ctaRef.current,
-          start: "top 85%",
-          toggleActions: "play none none reverse",
-        },
-      }
-    );
-
-    gsap.to(".experience-badge", {
-      y: 10,
-      duration: 2,
-      repeat: -1,
-      yoyo: true,
-      ease: "sine.inOut",
-    });
-
-    const socialIcons = document.querySelectorAll(".social-icon");
-    const handlers = new WeakMap();
-
-    socialIcons.forEach((icon) => {
-      const enter = () => {
-        gsap.to(icon, { scale: 1.2, rotation: 360, duration: 0.5 });
-      };
-      const leave = () => {
-        gsap.to(icon, { scale: 1, rotation: 0, duration: 0.5 });
-      };
-      handlers.set(icon, { enter, leave });
-      icon.addEventListener("mouseenter", enter);
-      icon.addEventListener("mouseleave", leave);
-    });
-
-    return () => {
-      socialIcons.forEach((icon) => {
-        const h = handlers.get(icon);
-        if (h) {
-          icon.removeEventListener("mouseenter", h.enter);
-          icon.removeEventListener("mouseleave", h.leave);
-        }
-      });
-    };
   }, []);
 
   const projects: Project[] = [
@@ -209,37 +117,37 @@ export default function Home() {
   const skills: Skill[] = [
     {
       title: "Web Development",
-      icon: <FaCode className="text-4xl text-electric-blue" />,
+      icon: <FaCode className="text-3xl text-electric-blue" />,
       items: ["HTML/CSS", "JavaScript", "React", "Next.js", "Node.js", "Express", "Laravel", "PHP"],
     },
     {
       title: "Mobile Development",
-      icon: <FaMobile className="text-4xl text-electric-blue" />,
+      icon: <FaMobile className="text-3xl text-electric-blue" />,
       items: ["React Native", "Flutter", "iOS", "Android"],
     },
     {
       title: "Game Development",
-      icon: <FaGamepad className="text-4xl text-electric-blue" />,
+      icon: <FaGamepad className="text-3xl text-electric-blue" />,
       items: ["Unity", "Unreal Engine", "C#", "C++", "Game Design", "Godot"],
     },
   ];
 
   return (
-    <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12 overflow-hidden">
+    <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
       {/* Hero Section */}
       <section
         ref={heroRef}
         className="flex flex-col lg:flex-row items-center justify-between gap-12 mb-24"
       >
         <div className="lg:w-1/2 space-y-6">
-          <div className="hero-badge inline-block px-4 py-2 bg-electric/10 rounded-full mb-4">
+          <div className="hero-badge inline-block px-4 py-2 bg-electric-blue/10 rounded-full mb-4">
             <span className="text-electric-blue font-medium">
               Full Stack Developer
             </span>
           </div>
           <h1 className="hero-title text-3xl sm:text-5xl lg:text-6xl font-extrabold leading-snug tracking-tight text-black dark:text-white">
             Hi, I'm{" "}
-            <span className="text-transparent bg-clip-text bg-gradient-to-r from-electric-blue via-electric-blue to-cyan-400">
+            <span className="text-electric-blue">
               Akmal Raditya Wijaya
             </span>
           </h1>
@@ -250,53 +158,54 @@ export default function Home() {
           <div className="hero-buttons flex flex-col sm:flex-row gap-4 pt-4">
             <Link
               href="/projects"
-              className="bg-electric-blue hover:bg-electric/90 text-white px-8 py-3 rounded-lg font-medium transition-all transform hover:-translate-y-1 shadow-lg hover:shadow-electric/30 text-center"
+              className="bg-electric-blue hover:bg-electric-blue/90 text-white px-8 py-3 rounded-lg font-medium transition-transform hover:scale-105 shadow-md"
             >
               View My Work
             </Link>
             <Link
               href="/contact"
-              className="border-2 border-electric-blue text-electric-blue hover:bg-electric/10 px-8 py-3 rounded-lg font-medium transition-all text-center"
+              className="border-2 border-electric-blue text-electric-blue hover:bg-electric-blue/5 px-8 py-3 rounded-lg font-medium transition-colors"
             >
               Contact Me
             </Link>
           </div>
           <div className="hero-social flex gap-4 pt-4">
             <a
-              href="https://github.com"
-              className="social-icon text-gray-600 hover:text-electric-blue dark:text-gray-300 dark:hover:text-electric transition-colors"
+              href="https://github.com/4lyaya"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-gray-600 hover:text-electric-blue dark:text-gray-300 dark:hover:text-electric-blue transition-colors"
             >
               <FaGithub className="text-2xl" />
             </a>
             <a
-              href="https://linkedin.com"
-              className="social-icon text-gray-600 hover:text-electric-blue dark:text-gray-300 dark:hover:text-electric transition-colors"
+              href="https://linkedin.com/in/4lyaya"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-gray-600 hover:text-electric-blue dark:text-gray-300 dark:hover:text-electric-blue transition-colors"
             >
               <FaLinkedin className="text-2xl" />
             </a>
             <a
-              href="https://twitter.com"
-              className="social-icon text-gray-600 hover:text-electric-blue dark:text-gray-300 dark:hover:text-electric transition-colors"
+              href="https://twitter.com/4lyaya"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-gray-600 hover:text-electric-blue dark:text-gray-300 dark:hover:text-electric-blue transition-colors"
             >
               <FaTwitter className="text-2xl" />
             </a>
           </div>
         </div>
         <div className="lg:w-1/2 flex justify-center relative">
-          <div className="hero-image relative w-72 h-72 sm:w-80 sm:h-80 lg:w-96 lg:h-96 rounded-2xl overflow-hidden border-8 border-white dark:border-gray-800 shadow-2xl">
+          <div className="hero-image-container relative w-64 h-64 sm:w-72 sm:h-72 lg:w-80 lg:h-80 rounded-full overflow-hidden border-4 border-white dark:border-gray-800 shadow-xl">
             <Image
               src="/images/profile.jpg"
               alt="Akmal Raditya Wijaya"
               fill
               className="object-cover"
               priority
+              sizes="320px"
             />
-          </div>
-          <div className="experience-badge absolute -bottom-8 -right-8 bg-electric/10 backdrop-blur-sm p-4 rounded-xl shadow-lg border border-white/20">
-            <div className="text-2xl font-bold text-electric-blue">3+</div>
-            <div className="text-sm text-gray-700 dark:text-gray-300">
-              Years Experience
-            </div>
           </div>
         </div>
       </section>
@@ -316,11 +225,9 @@ export default function Home() {
           {skills.map((skill, index) => (
             <div
               key={index}
-              className="skill-card bg-white dark:bg-black p-8 rounded-xl shadow-lg hover:shadow-electric/20 transition-shadow border border-gray-100 dark:border-gray-700 hover:-translate-y-2 transition-transform group"
+              className="bg-white dark:bg-gray-900 p-6 rounded-xl shadow-md border border-gray-100 dark:border-gray-700 hover:shadow-lg transition-shadow"
             >
-              <div className="text-electric-blue mb-6 group-hover:scale-110 transition-transform duration-300">
-                {skill.icon}
-              </div>
+              <div className="text-electric-blue mb-4">{skill.icon}</div>
               <h3 className="text-xl font-bold mb-4 text-gray-900 dark:text-white">
                 {skill.title}
               </h3>
@@ -352,37 +259,27 @@ export default function Home() {
           </div>
           <Link
             href="/projects"
-            className="flex items-center gap-2 text-electric-blue hover:text-cyan-400 font-medium group"
+            className="flex items-center gap-2 text-electric-blue font-medium group"
           >
             View All Projects
             <FaArrowRight className="group-hover:translate-x-1 transition-transform" />
           </Link>
         </div>
+
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
           {projects.map((project) => (
             <div
               key={project.id}
-              className="project-card bg-white dark:bg-black rounded-xl overflow-hidden shadow-lg border border-gray-100 dark:border-gray-700 hover:shadow-xl transition-all duration-300 transform hover:-translate-y-2"
+              className="bg-white dark:bg-gray-900 rounded-xl overflow-hidden shadow-md border border-gray-100 dark:border-gray-700 hover:shadow-lg transition-shadow"
             >
               <div className="relative h-48 overflow-hidden">
                 <Image
                   src={project.image}
                   alt={project.title}
                   fill
-                  className="object-cover transition-transform duration-500 hover:scale-110"
+                  className="object-cover"
+                  sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw"
                 />
-                <div className="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent opacity-0 hover:opacity-100 transition-opacity duration-300 flex items-end p-4">
-                  <div className="flex gap-2 flex-wrap">
-                    {project.tags.map((tag, i) => (
-                      <span
-                        key={i}
-                        className="bg-electric/80 text-white text-xs px-2 py-1 rounded"
-                      >
-                        {tag}
-                      </span>
-                    ))}
-                  </div>
-                </div>
               </div>
               <div className="p-6">
                 <h3 className="text-xl font-bold mb-2 text-gray-900 dark:text-white">
@@ -395,7 +292,7 @@ export default function Home() {
                   href={project.link}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="inline-flex items-center text-electric-blue hover:text-cyan-400 font-medium group"
+                  className="inline-flex items-center text-electric-blue font-medium hover:text-cyan-400 group"
                 >
                   View Project
                   <FaArrowRight className="ml-2 group-hover:translate-x-1 transition-transform" />
@@ -407,8 +304,11 @@ export default function Home() {
       </section>
 
       {/* Call to Action */}
-      <section ref={ctaRef} className="py-16 text-center bg-gradient-to-br from-electric/5 to-electric/5 rounded-3xl px-6">
-        <div className="cta-content max-w-3xl mx-auto">
+      <section
+        ref={ctaRef}
+        className="py-16 text-center bg-electric-blue/5 rounded-3xl px-6"
+      >
+        <div className="max-w-3xl mx-auto">
           <h2 className="text-3xl sm:text-4xl font-bold mb-6 text-black dark:text-white">
             Have a project in mind?
           </h2>
@@ -418,10 +318,9 @@ export default function Home() {
           </p>
           <Link
             href="/contact"
-            className="inline-flex items-center justify-center bg-electric-blue hover:bg-electric/90 text-white px-8 py-4 rounded-lg font-medium text-lg transition-all transform hover:-translate-y-1 shadow-lg hover:shadow-electric/30 gap-2 group"
+            className="inline-flex items-center justify-center bg-electric-blue text-white px-8 py-4 rounded-lg font-medium text-lg hover:bg-electric-blue/90 transition-transform hover:scale-105 shadow-md"
           >
             Let's Talk
-            <FaArrowRight className="group-hover:translate-x-1 transition-transform" />
           </Link>
         </div>
       </section>
