@@ -3,7 +3,7 @@
 @tailwind utilities;
 
 body {
-  @apply bg-light dark:bg-dark text-dark dark:text-light transition-colors duration-300;
+  @apply bg-white dark:bg-black text-black dark:text-white transition-colors duration-300;
 }
 
 /* Responsive typography */
@@ -40,11 +40,11 @@ body {
 }
 
 ::-webkit-scrollbar-thumb {
-  @apply bg-primary rounded-full;
+  @apply bg-electric rounded-full;
 }
 
 ::-webkit-scrollbar-thumb:hover {
-  @apply bg-secondary;
+  @apply bg-primary;
 }
 
 /* Responsive utilities */
