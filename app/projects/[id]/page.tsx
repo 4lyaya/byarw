@@ -241,7 +241,7 @@ export default function ProjectView() {
     });
 
     return () => {
-      ScrollTrigger.getAll().forEach((trigger) => trigger.kill());
+      ScrollTrigger.getAll().forEach((trigger: ScrollTrigger) => { trigger.kill(); });
     };
   }, [project]);
 
@@ -271,7 +271,7 @@ export default function ProjectView() {
           </p>
           <Link
             href="/projects"
-            className="bg-electric-blue text-white px-6 py-3 rounded-lg font-medium hover:bg-electric/90 transition-colors"
+            className="bg-electric-blue text-white px-6 py-3 rounded-lg font-medium hover:bg-electric-blue/90 transition-colors"
           >
             Back to Projects
           </Link>
@@ -345,7 +345,7 @@ export default function ProjectView() {
                   href={project.link}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="flex items-center gap-2 bg-electric-blue text-white px-6 py-3 rounded-lg font-medium hover:bg-electric/90 transition-colors"
+                  className="flex items-center gap-2 bg-electric-blue text-white px-6 py-3 rounded-lg font-medium hover:bg-electric-blue/90 transition-colors"
                 >
                   <FaExternalLinkAlt />
                   Live Demo
@@ -364,10 +364,10 @@ export default function ProjectView() {
               </div>
 
               {/* Decorative floating elements */}
-              <div className="floating-element absolute -top-4 -left-4 bg-electric/10 backdrop-blur-sm p-3 rounded-xl shadow-lg border border-white/20">
+              <div className="floating-element absolute -top-4 -left-4 bg-electric-blue/10 backdrop-blur-sm p-3 rounded-xl shadow-lg border border-white/20">
                 <FaLightbulb className="text-electric-blue text-xl" />
               </div>
-              <div className="floating-element absolute -bottom-4 -right-4 bg-electric/10 backdrop-blur-sm p-3 rounded-xl shadow-lg border border-white/20">
+              <div className="floating-element absolute -bottom-4 -right-4 bg-electric-blue/10 backdrop-blur-sm p-3 rounded-xl shadow-lg border border-white/20">
                 <FaRocket className="text-electric-blue text-xl" />
               </div>
             </div>
@@ -421,7 +421,7 @@ export default function ProjectView() {
                       {tech.items.map((item, i) => (
                         <span
                           key={i}
-                          className="px-3 py-1 bg-electric/10 text-electric-blue rounded-full text-sm"
+                          className="px-3 py-1 bg-electric-blue/10 text-electric-blue rounded-full text-sm"
                         >
                           {item}
                         </span>
@@ -561,13 +561,13 @@ export default function ProjectView() {
           <div className="flex flex-wrap justify-center gap-4">
             <Link
               href="/contact"
-              className="bg-electric-blue text-white px-8 py-4 rounded-lg font-medium hover:bg-electric/90 transition-colors"
+              className="bg-electric-blue text-white px-8 py-4 rounded-lg font-medium hover:bg-electric-blue/90 transition-colors"
             >
               Get in Touch
             </Link>
             <Link
               href="/projects"
-              className="border-2 border-electric-blue text-electric-blue px-8 py-4 rounded-lg font-medium hover:bg-electric/10 transition-colors"
+              className="border-2 border-electric-blue text-electric-blue px-8 py-4 rounded-lg font-medium hover:bg-electric-blue/10 transition-colors"
             >
               View More Projects
             </Link>

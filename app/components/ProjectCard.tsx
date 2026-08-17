@@ -132,7 +132,7 @@ export default function ProjectCard({ project }: ProjectCardProps) {
             {project.tags.map((tag, i) => (
               <span
                 key={i}
-                className="bg-electric/80 text-white text-xs px-2 py-1 rounded"
+                className="bg-electric-blue/80 text-white text-xs px-2 py-1 rounded"
               >
                 {tag}
               </span>
@@ -209,7 +209,7 @@ export default function ProjectCard({ project }: ProjectCardProps) {
         </div>
         <Link
           href={project.link}
-          className="inline-flex items-center text-electric-blue hover:text-electric transition-colors font-medium group/link"
+          className="inline-flex items-center text-electric-blue hover:text-electric-blue transition-colors font-medium group/link"
         >
           View Project
           <svg

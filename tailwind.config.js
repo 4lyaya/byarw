@@ -7,14 +7,12 @@ module.exports = {
   theme: {
     extend: {
       colors: {
-        primary: "#2563EB",
-        secondary: "#2563EB",
-        electric: "#2563EB",
-        "electric-blue": "#2563EB",
-        white: "#FFFFFF",
-        black: "#111111",
-        dark: "#111111",
-        light: "#FFFFFF",
+        'electric-blue': '#2563EB',
+        secondary: '#06B6D4',
+        white: '#FFFFFF',
+        black: '#111111',
+        light: '#FFFFFF',
+        dark: '#111111',
       },
       fontFamily: {
         sans: ['Inter', 'system-ui', '-apple-system', 'sans-serif'],

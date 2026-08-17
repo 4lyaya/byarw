@@ -250,7 +250,7 @@ export default function Stack() {
     );
 
     return () => {
-      ScrollTrigger.getAll().forEach((trigger) => trigger.kill());
+      ScrollTrigger.getAll().forEach((trigger: ScrollTrigger) => { trigger.kill(); });
     };
   }, []);
 
@@ -277,7 +277,7 @@ export default function Stack() {
         {techCategories.map((category, catIndex) => (
           <div
             key={catIndex}
-            className="tech-category bg-white dark:bg-gray-900 p-6 rounded-2xl shadow-lg border border-gray-100 dark:border-gray-700 hover:shadow-electric/20 transition-shadow duration-300"
+            className="tech-category bg-white dark:bg-gray-900 p-6 rounded-2xl shadow-lg border border-gray-100 dark:border-gray-700 hover:shadow-electric-blue/20 transition-shadow duration-300"
           >
             <h2 className="text-2xl font-bold mb-6 text-electric-blue">
               {category.category}

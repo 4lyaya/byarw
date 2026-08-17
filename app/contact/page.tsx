@@ -154,7 +154,7 @@ export default function Contact() {
     });
 
     return () => {
-      ScrollTrigger.getAll().forEach((trigger) => trigger.kill());
+      ScrollTrigger.getAll().forEach((trigger: ScrollTrigger) => { trigger.kill(); });
       inputs.forEach((input) => {
         input.removeEventListener("focus", focusHandlers.get(input));
         input.removeEventListener("blur", blurHandlers.get(input));
@@ -273,7 +273,7 @@ export default function Contact() {
               <button
                 type="submit"
                 disabled={isLoading}
-                className="form-element w-full sm:w-auto bg-electric-blue hover:bg-electric/90 text-white px-8 py-4 rounded-lg font-medium text-lg transition-all transform hover:-translate-y-1 shadow-lg hover:shadow-electric/30 flex items-center justify-center gap-2 disabled:opacity-75 disabled:cursor-not-allowed"
+                className="form-element w-full sm:w-auto bg-electric-blue hover:bg-electric-blue/90 text-white px-8 py-4 rounded-lg font-medium text-lg transition-all transform hover:-translate-y-1 shadow-lg hover:shadow-electric-blue/30 flex items-center justify-center gap-2 disabled:opacity-75 disabled:cursor-not-allowed"
               >
                 {isLoading ? (
                   <>

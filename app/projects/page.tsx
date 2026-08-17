@@ -225,7 +225,7 @@ export default function Projects() {
     });
 
     return () => {
-      ScrollTrigger.getAll().forEach((trigger) => trigger.kill());
+      ScrollTrigger.getAll().forEach((trigger: ScrollTrigger) => { trigger.kill(); });
       tagElements.forEach((tag) => {
         tag.removeEventListener("mouseenter", enterHandlers.get(tag));
         tag.removeEventListener("mouseleave", leaveHandlers.get(tag));
@@ -263,7 +263,7 @@ export default function Projects() {
               type="text"
               value={searchQuery}
               onChange={(e) => setSearchQuery(e.target.value)}
-              className="block w-full pl-10 pr-3 py-3 border border-gray-300 dark:border-gray-600 rounded-lg bg-white dark:bg-black focus:outline-none focus:ring-2 focus:ring-electric/50 focus:border-transparent transition-all text-black dark:text-white"
+              className="block w-full pl-10 pr-3 py-3 border border-gray-300 dark:border-gray-600 rounded-lg bg-white dark:bg-black focus:outline-none focus:ring-2 focus:ring-electric-blue/50 focus:border-transparent transition-all text-black dark:text-white"
               placeholder="Search projects..."
             />
           </div>
@@ -273,7 +273,7 @@ export default function Projects() {
               <select
                 value={selectedCategory}
                 onChange={(e) => setSelectedCategory(e.target.value)}
-                className="appearance-none bg-white dark:bg-black border border-gray-300 dark:border-gray-600 rounded-lg pl-4 pr-8 py-3 focus:outline-none focus:ring-2 focus:ring-electric/50 focus:border-transparent transition-all text-sm text-black dark:text-white"
+                className="appearance-none bg-white dark:bg-black border border-gray-300 dark:border-gray-600 rounded-lg pl-4 pr-8 py-3 focus:outline-none focus:ring-2 focus:ring-electric-blue/50 focus:border-transparent transition-all text-sm text-black dark:text-white"
               >
                 {categories.map((category) => (
                   <option key={category} value={category}>
@@ -290,7 +290,7 @@ export default function Projects() {
               <select
                 value={selectedYear}
                 onChange={(e) => setSelectedYear(e.target.value)}
-                className="appearance-none bg-white dark:bg-black border border-gray-300 dark:border-gray-600 rounded-lg pl-4 pr-8 py-3 focus:outline-none focus:ring-2 focus:ring-electric/50 focus:border-transparent transition-all text-sm text-black dark:text-white"
+                className="appearance-none bg-white dark:bg-black border border-gray-300 dark:border-gray-600 rounded-lg pl-4 pr-8 py-3 focus:outline-none focus:ring-2 focus:ring-electric-blue/50 focus:border-transparent transition-all text-sm text-black dark:text-white"
               >
                 {years.map((year) => (
                   <option key={year} value={year}>
@@ -310,7 +310,7 @@ export default function Projects() {
             className={`px-3 py-1 rounded-full text-sm cursor-pointer transition-all filter-tag ${
               selectedTag === "All"
                 ? "bg-electric-blue text-white"
-                : "bg-electric/10 text-electric-blue hover:bg-electric/20"
+                : "bg-electric-blue/10 text-electric-blue hover:bg-electric-blue/20"
             }`}
             onClick={() => setSelectedTag("All")}
           >
@@ -322,7 +322,7 @@ export default function Projects() {
               className={`px-3 py-1 rounded-full text-sm cursor-pointer transition-all filter-tag ${
                 selectedTag === tag
                   ? "bg-electric-blue text-white"
-                  : "bg-electric/10 text-electric-blue hover:bg-electric/20"
+                  : "bg-electric-blue/10 text-electric-blue hover:bg-electric-blue/20"
               }`}
               onClick={() => setSelectedTag(tag)}
             >

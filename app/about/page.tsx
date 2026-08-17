@@ -138,7 +138,7 @@ export default function About() {
     });
 
     return () => {
-      ScrollTrigger.getAll().forEach((trigger) => trigger.kill());
+      ScrollTrigger.getAll().forEach((trigger: ScrollTrigger) => { trigger.kill(); });
       expertiseCards.forEach((card) => {
         card.removeEventListener("mouseenter", enterHandlers.get(card));
         card.removeEventListener("mouseleave", leaveHandlers.get(card));
@@ -179,13 +179,13 @@ export default function About() {
           </div>
 
           {/* Decorative floating elements */}
-          <div className="floating-element absolute -top-4 -left-4 bg-electric/10 backdrop-blur-sm p-3 rounded-xl shadow-lg border border-white/20">
+          <div className="floating-element absolute -top-4 -left-4 bg-electric-blue/10 backdrop-blur-sm p-3 rounded-xl shadow-lg border border-white/20">
             <FaHeart className="text-electric-blue text-xl" />
           </div>
-          <div className="floating-element absolute -bottom-4 -right-4 bg-electric/10 backdrop-blur-sm p-3 rounded-xl shadow-lg border border-white/20">
+          <div className="floating-element absolute -bottom-4 -right-4 bg-electric-blue/10 backdrop-blur-sm p-3 rounded-xl shadow-lg border border-white/20">
             <FaLightbulb className="text-electric-blue text-xl" />
           </div>
-          <div className="floating-element absolute top-1/2 -right-6 bg-electric p-3 rounded-full shadow-lg">
+          <div className="floating-element absolute top-1/2 -right-6 bg-electric-blue p-3 rounded-full shadow-lg">
             <FaRocket className="text-white text-xl" />
           </div>
         </div>
@@ -229,7 +229,7 @@ export default function About() {
             className="grid grid-cols-2 md:grid-cols-3 gap-4"
           >
             <div className="expertise-card bg-white dark:bg-black p-4 rounded-lg shadow-md border border-gray-100 dark:border-gray-700 flex items-center gap-3 transition-all duration-300">
-              <div className="bg-electric/10 p-3 rounded-full">
+              <div className="bg-electric-blue/10 p-3 rounded-full">
                 <FaCode className="text-electric-blue text-2xl" />
               </div>
               <span className="font-medium text-gray-900 dark:text-white">
@@ -237,7 +237,7 @@ export default function About() {
               </span>
             </div>
             <div className="expertise-card bg-white dark:bg-black p-4 rounded-lg shadow-md border border-gray-100 dark:border-gray-700 flex items-center gap-3 transition-all duration-300">
-              <div className="bg-electric/10 p-3 rounded-full">
+              <div className="bg-electric-blue/10 p-3 rounded-full">
                 <FaMobile className="text-electric-blue text-2xl" />
               </div>
               <span className="font-medium text-gray-900 dark:text-white">
@@ -245,7 +245,7 @@ export default function About() {
               </span>
             </div>
             <div className="expertise-card bg-white dark:bg-black p-4 rounded-lg shadow-md border border-gray-100 dark:border-gray-700 flex items-center gap-3 transition-all duration-300">
-              <div className="bg-electric/10 p-3 rounded-full">
+              <div className="bg-electric-blue/10 p-3 rounded-full">
                 <FaGamepad className="text-electric-blue text-2xl" />
               </div>
               <span className="font-medium text-gray-900 dark:text-white">
@@ -261,7 +261,7 @@ export default function About() {
           >
             <div className="education-card bg-white dark:bg-black p-6 rounded-xl shadow-md border border-gray-100 dark:border-gray-700">
               <div className="flex items-center gap-3 mb-4">
-                <div className="bg-electric/10 p-2 rounded-full">
+                <div className="bg-electric-blue/10 p-2 rounded-full">
                   <FaGraduationCap className="text-electric-blue text-2xl" />
                 </div>
                 <h3 className="text-2xl font-bold text-black dark:text-white">
@@ -285,7 +285,7 @@ export default function About() {
 
             <div className="education-card bg-white dark:bg-black p-6 rounded-xl shadow-md border border-gray-100 dark:border-gray-700">
               <div className="flex items-center gap-3 mb-4">
-                <div className="bg-electric/10 p-2 rounded-full">
+                <div className="bg-electric-blue/10 p-2 rounded-full">
                   <FaAward className="text-electric-blue text-2xl" />
                 </div>
                 <h3 className="text-2xl font-bold text-black dark:text-white">
@@ -322,7 +322,7 @@ export default function About() {
           </div>
 
           {/* Fun Facts Section */}
-          <div className="bg-gradient-to-r from-electric/5 to-electric/5 p-6 rounded-2xl">
+          <div className="bg-gradient-to-r from-electric-blue/5 to-electric-blue/5 p-6 rounded-2xl">
             <h3 className="text-2xl font-bold mb-4 text-black dark:text-white">
               Fun Facts
             </h3>
